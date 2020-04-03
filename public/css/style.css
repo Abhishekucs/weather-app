@@ -1,0 +1,60 @@
+body {
+  color: #333333;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: 'Montserrat';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+footer {
+  color: #888888;
+  border-top: 1px solid #eeeeee;
+  margin-top: 16px;
+  padding: 16px 0;
+}
+
+header {
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+
+h1 {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+header a {
+  color: #888888;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+input {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+
+button {
+  border: none;
+  padding: 9px;
+  background-color: #333333;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
