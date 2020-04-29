@@ -34,14 +34,14 @@ currentLocation.addEventListener('submit', (e) => {
         return alert('Browser doesnot support this functionality')
     }
 
+    messageOne.textContent = 'Loading...'
+    messageTwo.textContent = ''
+
     navigator.geolocation.getCurrentPosition((location) => {
         const data = {
             latitude : location.coords.latitude,
             longitude : location.coords.longitude
         }
-
-        messageOne.textContent = 'Loading...'
-        messageTwo.textContent = ''
 
         fetch(`/currentlocation?latitude=${data.longitude}&longitude=${data.latitude}`).then((response) => {
             response.json().then((data) => {
