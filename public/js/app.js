@@ -4,6 +4,8 @@ const weatherForm = document.querySelector('form')
 const searchLocation = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
+const myLocation = document.querySelector('#my-location')
+const currentLocation = document.querySelector('#current-location')
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -23,4 +25,34 @@ weatherForm.addEventListener('submit', (e) => {
         }
     })
 })
+})
+
+currentLocation.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    if(!navigator.geolocation){
+        return alert('Browser doesnot support this functionality')
+    }
+
+    navigator.geolocation.getCurrentPosition((location) => {
+        const data = {
+            latitude : location.coords.latitude,
+            longitude : location.coords.longitude
+        }
+
+        messageOne.textContent = 'Loading...'
+        messageTwo.textContent = ''
+
+        fetch(`/currentlocation?latitude=${data.longitude}&longitude=${data.latitude}`).then((response) => {
+            response.json().then((data) => {
+                if(data.error){
+                    messageOne.textContent = data.error
+                }else{
+                    messageOne.textContent = 'Forecast:- ' + data.Forecast
+                    messageTwo.textContent = 'Location:- ' + data.Location
+                }
+            })
+        })
+        
+    })
 })
